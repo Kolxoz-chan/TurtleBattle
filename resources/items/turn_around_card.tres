@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://scripts/resources/item.gd" type="Script" id=1]
+[ext_resource path="res://textures/tilesets/cards.png" type="Texture" id=2]
+[ext_resource path="res://scripts/actions/rotate_action.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+quarter_value = 2
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 200, 0, 100, 100 )
+
+[resource]
+script = ExtResource( 1 )
+title = "Turn around"
+description = "Turn back to front"
+icon = SubResource( 1 )
+_actions = [ SubResource( 2 ) ]

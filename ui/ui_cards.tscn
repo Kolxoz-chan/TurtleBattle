@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ui/ui_cards.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="ui_cards" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="vbox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 96.0
+alignment = 2
+
+[node name="hbox" type="HBoxContainer" parent="vbox"]
+margin_top = 672.0
+margin_right = 1024.0
+margin_bottom = 672.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="vbox"]
+margin_top = 676.0
+margin_right = 1024.0
+margin_bottom = 696.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/separator = SubResource( 3 )

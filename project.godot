@@ -1,0 +1,144 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Action",
+"language": "GDScript",
+"path": "res://scripts/resources/action.gd"
+}, {
+"base": "Resource",
+"class": "CardItem",
+"language": "GDScript",
+"path": "res://scripts/resources/item.gd"
+}, {
+"base": "Area2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scripts/objects/character.gd"
+}, {
+"base": "Camera2D",
+"class": "GameCamera",
+"language": "GDScript",
+"path": "res://scripts/objects/game_camera.gd"
+}, {
+"base": "Node",
+"class": "GridItem",
+"language": "GDScript",
+"path": "res://scripts/objects/grid_item.gd"
+}, {
+"base": "Node2D",
+"class": "GridMap2D",
+"language": "GDScript",
+"path": "res://scripts/objects/grid_map_2d.gd"
+}, {
+"base": "Resource",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://scripts/resources/inventory.gd"
+}, {
+"base": "Node",
+"class": "Mode",
+"language": "GDScript",
+"path": "res://scripts/modes/mode.gd"
+}, {
+"base": "Action",
+"class": "MoveAction",
+"language": "GDScript",
+"path": "res://scripts/actions/move_action.gd"
+}, {
+"base": "State",
+"class": "PlayState",
+"language": "GDScript",
+"path": "res://scripts/states/play_state.gd"
+}, {
+"base": "Action",
+"class": "RotateAction",
+"language": "GDScript",
+"path": "res://scripts/actions/rotate_action.gd"
+}, {
+"base": "Resource",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/resources/state.gd"
+} ]
+_global_script_class_icons={
+"Action": "",
+"CardItem": "",
+"Character": "",
+"GameCamera": "",
+"GridItem": "",
+"GridMap2D": "",
+"Inventory": "",
+"Mode": "",
+"MoveAction": "",
+"PlayState": "",
+"RotateAction": "",
+"State": ""
+}
+
+[application]
+
+config/name="TurtleBattle"
+run/main_scene="res://scenes/Scene.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+CameraManager="*res://scripts/managers/camera_manager.gd"
+CharactersManager="*res://scripts/managers/characters_manager.gd"
+InventoryManager="*res://scripts/managers/inventory_manager.gd"
+PlayerController="*res://scripts/controllers/player_controller.gd"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
