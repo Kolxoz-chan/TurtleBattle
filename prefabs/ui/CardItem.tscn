@@ -47,7 +47,7 @@ custom_styles/separator = SubResource( 3 )
 [node name="card_name" type="Label" parent="VBoxContainer"]
 margin_top = 14.0
 margin_right = 130.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "card_name"
@@ -56,17 +56,17 @@ autowrap = true
 uppercase = true
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 37.0
+margin_top = 36.0
 margin_right = 130.0
-margin_bottom = 57.0
+margin_bottom = 59.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 3
 custom_styles/separator = SubResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 61.0
+margin_top = 63.0
 margin_right = 130.0
-margin_bottom = 161.0
+margin_bottom = 163.0
 mouse_filter = 1
 
 [node name="card_icon" type="TextureRect" parent="VBoxContainer/CenterContainer"]
@@ -77,17 +77,17 @@ mouse_filter = 2
 texture = SubResource( 4 )
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 165.0
+margin_top = 167.0
 margin_right = 130.0
-margin_bottom = 185.0
+margin_bottom = 190.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 3
 custom_styles/separator = SubResource( 3 )
 
 [node name="card_description" type="Label" parent="VBoxContainer"]
-margin_top = 189.0
+margin_top = 194.0
 margin_right = 130.0
-margin_bottom = 208.0
+margin_bottom = 206.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "card_description"
@@ -95,9 +95,9 @@ align = 1
 autowrap = true
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
-margin_top = 212.0
+margin_top = 210.0
 margin_right = 130.0
-margin_bottom = 222.0
+margin_bottom = 220.0
 rect_min_size = Vector2( 0, 10 )
 custom_styles/separator = SubResource( 3 )
 

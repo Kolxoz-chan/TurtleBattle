@@ -12,6 +12,13 @@ func add_character(obj : Character):
 func get_characters_list() -> Array:
 	return _characters
 	
+func next_character():
+	_current_caracter += 1
+	if _current_caracter >= _characters.size():
+		_current_caracter = 0
+	
+	return _characters[_current_caracter]
+	
 func get_current_character() -> Character:
 	if _characters.size() > _current_caracter:
 		return _characters[_current_caracter]
@@ -31,9 +38,11 @@ func init_characters(count, map_size):
 		character.set_dirrection(randi() % Character.Dirrection.size())
 		add_character(character)
 		
+		if i == 0:
+			camera.set_target(character)
+		
 		if i == player_index:
 			_player_character = character
-			camera.set_target(character)
 		
 		var item = GridItem.new()
 		item.add_child(character)
