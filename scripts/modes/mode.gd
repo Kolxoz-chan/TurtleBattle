@@ -8,7 +8,7 @@ export (int) var _max_timer_value = 30;
 
 var _timer_value = 0;
 
-func _ready():
+func _ready(): 
 	# Settings
 	randomize()
 	
