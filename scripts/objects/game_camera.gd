@@ -2,7 +2,7 @@ class_name GameCamera extends Camera2D
 tool
 
 export var _speed = 80
-export (NodePath) var _target_path
+export (NodePath) var _target_path = null
 var _target : Node2D
 
 func _ready():

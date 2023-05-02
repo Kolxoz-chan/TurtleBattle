@@ -28,6 +28,12 @@ func get_current_character() -> Character:
 func get_player() -> Character:
 	return _player_character
 	
+func is_players_turn():
+	var player = CharactersManager.get_player()
+	var current = CharactersManager.get_current_character()
+	
+	return player == current
+	
 func init_characters(count, map_size):
 	var game_field = get_tree().current_scene.get_node("game_field")
 	var player_index = randi() % count

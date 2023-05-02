@@ -27,7 +27,8 @@ func _get_configuration_warning():
 	return ""
 
 func _on_CardItem_gui_input(event):
-	if event is InputEventMouseButton:
-		if _item and event.pressed:
-			_item.execute_actions()
-			self.queue_free()
+	if CharactersManager.is_players_turn():
+		if event is InputEventMouseButton:
+			if _item and event.pressed:
+				_item.execute_actions()
+				self.queue_free()

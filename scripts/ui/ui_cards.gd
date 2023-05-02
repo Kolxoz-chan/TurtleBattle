@@ -2,6 +2,9 @@ extends Control
 
 var card_item = preload("res://prefabs/ui/CardItem.tscn")
 
+func _ready():
+	UiManager.init_ui(self.name, self)
+
 func set_cards(list : Array):
 	clear_cards()
 	fill_container(list)

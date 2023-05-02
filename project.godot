@@ -95,6 +95,7 @@ config/icon="res://icon.png"
 CameraManager="*res://scripts/managers/camera_manager.gd"
 CharactersManager="*res://scripts/managers/characters_manager.gd"
 InventoryManager="*res://scripts/managers/inventory_manager.gd"
+UiManager="*res://scripts/managers/ui_manager.gd"
 PlayerController="*res://scripts/controllers/player_controller.gd"
 
 [gui]

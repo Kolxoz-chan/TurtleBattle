@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/fonts/message_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/fonts/timer_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/ui/ui_hud.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="ui_hud" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="vbox" type="VBoxContainer" parent="."]
 anchor_right = 1.0

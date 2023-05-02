@@ -31,24 +31,43 @@ func _ready():
 	var list = CharactersManager.get_characters_list()
 	for character in list:
 		var inventory = InventoryManager.init_inventory(character)
-		inventory.fill_random_cards(_cards_count, _cards_list)
+		inventory.add_random_cards(_cards_count, _cards_list)
 		
 	# Init gui
-	$ui/ui_cards.update_data()
+	UiManager.get_ui("ui_cards").update_data()
 	
 	# Init timer
 	_timer_value = _max_timer_value
-	update_timer()
+	update_timer(0)
 	$timer.start()
+	
+func update_message():
+	var hud = UiManager.get_ui("ui_hud")
+	
+	if CharactersManager.is_players_turn():
+		hud.set_message_visible(true)
+	else:
+		hud.set_message_visible(false)
 		
-func update_timer():
+func generate_cards(character):
+	var inventory = InventoryManager.get_inventory(character)
+	var count = inventory.get_cards_count()
+	inventory.add_random_cards(_cards_count - count, _cards_list)
+	UiManager.get_ui("ui_cards").update_data()
+		
+func update_timer(value):
+	_timer_value -= value
 	if _timer_value < 0:
-		var character = CharactersManager.next_character()
-		$game_camera.set_target(character)
+		var character = CharactersManager.get_current_character()
+		generate_cards(character)
+		
+		character = CharactersManager.next_character()
+		CameraManager.get_camera().set_target(character)
 		_timer_value = _max_timer_value
-	$ui/ui_hud.set_time(_timer_value)
+		
+	UiManager.get_ui("ui_hud").set_time(_timer_value)
+	update_message()
 		
 func _on_timer_timeout():
-	_timer_value -= 1
-	update_timer()
+	update_timer(1)
 	

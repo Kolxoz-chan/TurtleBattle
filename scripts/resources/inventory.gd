@@ -12,7 +12,10 @@ func clear_cards_list():
 func add_card(item : CardItem):
 	_cards_list.append(item)
 	
-func fill_random_cards(count, list):
+func add_random_cards(count, list):
 	for i in count:
 		var item = list[randi() % list.size()]
 		add_card(item)
+		
+func get_cards_count():
+	return _cards_list.size()
