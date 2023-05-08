@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CardItem",
 "language": "GDScript",
-"path": "res://scripts/resources/item.gd"
+"path": "res://scripts/resources/card_item.gd"
 }, {
 "base": "Area2D",
 "class": "Character",
@@ -60,6 +60,11 @@ _global_script_classes=[ {
 "path": "res://scripts/states/play_state.gd"
 }, {
 "base": "Action",
+"class": "ResetAction",
+"language": "GDScript",
+"path": "res://scripts/actions/reset_action.gd"
+}, {
+"base": "Action",
 "class": "RotateAction",
 "language": "GDScript",
 "path": "res://scripts/actions/rotate_action.gd"
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "Mode": "",
 "MoveAction": "",
 "PlayState": "",
+"ResetAction": "",
 "RotateAction": "",
 "State": ""
 }
@@ -96,6 +102,8 @@ CameraManager="*res://scripts/managers/camera_manager.gd"
 CharactersManager="*res://scripts/managers/characters_manager.gd"
 InventoryManager="*res://scripts/managers/inventory_manager.gd"
 UiManager="*res://scripts/managers/ui_manager.gd"
+SceneManager="*res://scripts/managers/scene_manager.gd"
+GameManager="*res://scripts/managers/game_manager.gd"
 PlayerController="*res://scripts/controllers/player_controller.gd"
 
 [gui]

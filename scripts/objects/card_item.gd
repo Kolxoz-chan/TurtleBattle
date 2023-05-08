@@ -30,5 +30,8 @@ func _on_CardItem_gui_input(event):
 	if CharactersManager.is_players_turn():
 		if event is InputEventMouseButton:
 			if _item and event.pressed:
-				_item.execute_actions()
+				var character = CharactersManager.get_player()
+				var inventory = InventoryManager.get_inventory(character)
+				inventory.use_card(_item)
+				
 				self.queue_free()

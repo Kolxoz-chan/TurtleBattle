@@ -36,7 +36,7 @@ func is_players_turn():
 	
 func init_characters(count, map_size):
 	var game_field = get_tree().current_scene.get_node("game_field")
-	var player_index = randi() % count
+	var player_index = 0 #randi() % count
 	var camera = CameraManager.get_camera()
 	
 	for i in count:

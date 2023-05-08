@@ -5,8 +5,7 @@ export (int, 1, 10) var _cards_count = 5
 export (int, 2, 20) var _characters_count = 4
 export (Vector2) var _map_size
 export (int) var _max_timer_value = 30;
-
-var _timer_value = 0;
+export (int) var _max_steps_count = 3
 
 func _ready(): 
 	# Settings
@@ -20,8 +19,14 @@ func _ready():
 	if _cards_list.size() <= 0:
 		printerr("ERROR. Cards list is empty")
 		return
+		
+		
+	# Init game
+	GameManager.init_timer(_max_timer_value)
+	GameManager.init_cards(_cards_count, _cards_list)
 	
-	# Init map
+	# Init scene
+	SceneManager.init_scene(self)
 	$game_field.init_map(_map_size, Vector2(64, 64))
 	
 	# Init characters
@@ -30,44 +35,29 @@ func _ready():
 	# Init inventory
 	var list = CharactersManager.get_characters_list()
 	for character in list:
+		character.init_steps(_max_steps_count)
+		character.reset_steps()
+		
 		var inventory = InventoryManager.init_inventory(character)
 		inventory.add_random_cards(_cards_count, _cards_list)
 		
+	# Init timer
+	GameManager.reset_timer()
+	$timer.start()
+		
 	# Init gui
 	UiManager.get_ui("ui_cards").update_data()
+	UiManager.get_ui("ui_hud").update_data()
 	
-	# Init timer
-	_timer_value = _max_timer_value
-	update_timer(0)
-	$timer.start()
 	
-func update_message():
-	var hud = UiManager.get_ui("ui_hud")
-	
-	if CharactersManager.is_players_turn():
-		hud.set_message_visible(true)
-	else:
-		hud.set_message_visible(false)
-		
-func generate_cards(character):
-	var inventory = InventoryManager.get_inventory(character)
-	var count = inventory.get_cards_count()
-	inventory.add_random_cards(_cards_count - count, _cards_list)
-	UiManager.get_ui("ui_cards").update_data()
-		
-func update_timer(value):
-	_timer_value -= value
-	if _timer_value < 0:
-		var character = CharactersManager.get_current_character()
-		generate_cards(character)
-		
-		character = CharactersManager.next_character()
-		CameraManager.get_camera().set_target(character)
-		_timer_value = _max_timer_value
-		
-	UiManager.get_ui("ui_hud").set_time(_timer_value)
-	update_message()
 		
 func _on_timer_timeout():
-	update_timer(1)
+	GameManager.update_timer(-1)
 	
+	if GameManager.is_timeout():
+		GameManager.regenerate_cards()
+		GameManager.next_character()
+	else:
+		UiManager.get_ui("ui_hud").update_data()
+	
+ 

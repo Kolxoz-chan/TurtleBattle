@@ -5,6 +5,9 @@ enum Dirrection {TOP = 0, RIGHT, BOTTOM, LEFT}
 
 export (Dirrection) var _dirrection;
 
+var _max_steps_count
+var _steps_count
+
 func _ready():
 	set_dirrection(_dirrection)
 	
@@ -18,6 +21,21 @@ func rotate_quarter(value):
 
 func get_dirrection():
 	return _dirrection
+	
+func add_step(value):
+	_steps_count += value
+	
+func init_steps(value):
+	_max_steps_count = value
+
+func is_move_possible():
+	return _steps_count > 0
+
+func reset_steps():
+	_steps_count = _max_steps_count
+	
+func get_steps_count():
+	return _steps_count 
 
 func set_dirrection(dirr):
 	_dirrection = dirr

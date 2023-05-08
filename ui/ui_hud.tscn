@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/fonts/message_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/fonts/timer_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scripts/ui/ui_hud.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -18,27 +20,73 @@ margin_top = 20.0
 
 [node name="hbox" type="HBoxContainer" parent="vbox"]
 margin_right = 1024.0
-margin_bottom = 57.0
+margin_bottom = 64.0
 alignment = 1
 
+[node name="VSeparator4" type="VSeparator" parent="vbox/hbox"]
+margin_right = 150.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 3 )
+
+[node name="coins_lab" type="Label" parent="vbox/hbox"]
+margin_left = 154.0
+margin_top = 15.0
+margin_right = 302.0
+margin_bottom = 49.0
+custom_fonts/font = ExtResource( 1 )
+text = "Монет: 0"
+
+[node name="VSeparator3" type="VSeparator" parent="vbox/hbox"]
+margin_left = 306.0
+margin_right = 457.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 3 )
+
 [node name="timer_lab" type="Label" parent="vbox/hbox"]
-margin_left = 481.0
-margin_right = 543.0
-margin_bottom = 57.0
+margin_left = 461.0
+margin_right = 561.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 100, 64 )
 custom_fonts/font = ExtResource( 2 )
 text = "30"
+align = 1
+clip_text = true
+
+[node name="VSeparator" type="VSeparator" parent="vbox/hbox"]
+margin_left = 565.0
+margin_right = 716.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 3 )
+
+[node name="steps_lab" type="Label" parent="vbox/hbox"]
+margin_left = 720.0
+margin_top = 15.0
+margin_right = 869.0
+margin_bottom = 49.0
+custom_fonts/font = ExtResource( 1 )
+text = "Ходов: 0"
+
+[node name="VSeparator2" type="VSeparator" parent="vbox/hbox"]
+margin_left = 873.0
+margin_right = 1024.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_styles/separator = SubResource( 3 )
 
 [node name="HSeparator" type="HSeparator" parent="vbox"]
-margin_top = 61.0
+margin_top = 68.0
 margin_right = 1024.0
-margin_bottom = 81.0
+margin_bottom = 88.0
 rect_min_size = Vector2( 0, 20 )
 custom_styles/separator = SubResource( 2 )
 
 [node name="hbox2" type="HBoxContainer" parent="vbox"]
-margin_top = 85.0
+margin_top = 92.0
 margin_right = 1024.0
-margin_bottom = 119.0
+margin_bottom = 126.0
 alignment = 1
 
 [node name="message_lab" type="Label" parent="vbox/hbox2"]
